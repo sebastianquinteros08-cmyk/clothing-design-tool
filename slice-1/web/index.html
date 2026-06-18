@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slice 1 — foto a flat</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/vendor/konva.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Foto → flat</h1>
+    <span id="cost">$0.0000 acumulado</span>
+  </header>
+
+  <section id="controls">
+    <input type="file" id="file" accept="image/*">
+    <div id="tools" hidden>
+      <button data-mode="include" class="mode active">Incluir (+)</button>
+      <button data-mode="exclude" class="mode">Excluir (−)</button>
+      <button data-mode="box" class="mode">Caja</button>
+      <button id="clear">Limpiar marcas</button>
+      <button id="segment">Segmentar</button>
+      <button id="vectorize" disabled>Exportar SVG</button>
+    </div>
+  </section>
+
+  <p id="error" hidden></p>
+  <div id="canvas"></div>
+
+  <section id="result" hidden>
+    <a id="download" download="flat.svg">Descargar flat.svg</a>
+    <div id="svgPreview"></div>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>

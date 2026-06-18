@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.python-version
+
+# Environment / secrets
+.env
+.env.local
+*.key
+*.pem
+
+# Slice 0 outputs (regenerables) e inputs personales (pesados, referencias propias)
+slice-0/output/
+slice-0/fotos/
+
+# Slice 1 outputs efímeros (regenerables, por sesión)
+slice-1/work/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code local config / session files
+.claude/
+
+# Playwright MCP artifacts (console logs / page dumps, regenerables)
+.playwright-mcp/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# uv cache (el uv.lock SÍ se versiona: persiste los hashes auditados — §7)
+.uv/
+
+# Build artifacts
+dist/
+build/
+
+# Material de trabajo local (decisión de Sebastian, Sesión 4): no va a version control.
+# research/spec son notas internas; los tweets son referencia de la idea de preview visual.
+docs/research-confeccion.md
+docs/superpowers/
+tweet1.png
+tweet2.png
