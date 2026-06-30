@@ -41,3 +41,25 @@ def test_load_garment_unknown_type_falls_back_to_base(peacoat):
     data["garment_type"] = "totally-unknown"
     restored = load_garment(data)
     assert type(restored) is Garment
+
+
+def test_reference_image_round_trips():
+    from indumentaria.dsl.garment import Garment, load_garment
+    from indumentaria.dsl.measurements import BodyProfile, MeasurementSet
+
+    g = Garment(
+        name="x",
+        measurements=MeasurementSet(body_profile=BodyProfile(measures={"chest_cm": 90.0})),
+        reference_image="/assets/peacoat/reference.jpg",
+    )
+    restored = load_garment(g.model_dump())
+    assert restored.reference_image == "/assets/peacoat/reference.jpg"
+
+
+def test_build_peacoat_is_complete_coat():
+    from indumentaria.dsl.examples import build_peacoat
+
+    coat = build_peacoat()
+    assert coat.garment_type == "coat"
+    assert coat.missing_slots == []  # los 5 slots presentes
+    assert {p.code for p in coat.measurements.poms} == {"A", "B"}

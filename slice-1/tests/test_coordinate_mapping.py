@@ -3,13 +3,13 @@
 Este es el punto técnico crítico del Slice 1: Konva muestra la foto escalada,
 pero SAM 2 necesita coords en píxeles de la imagen original.
 
-En la Sesión 5 (2026-06-17) esto se verificó EN VIVO con Playwright MCP:
+Esto se verificó en vivo con automatización de browser:
 imagen 1600x1200 -> scale 0.5 -> click en el centro del canvas (display 400,~300)
 mapeó a imagen (800, 598) ≈ (800, 600). Correcto.
 
 Este archivo deja el test repetible en pytest. Auto-skip si no está
 `pytest-playwright` instalado (instalar: `uv add --dev pytest-playwright` +
-`uv run playwright install chromium` — descarga un browser, aplicar gate §7).
+`uv run playwright install chromium` — descarga un browser).
 Requiere además la app corriendo en 127.0.0.1:8000.
 
 Imagen de prueba: 1600x1200 -> con MAX_W=800, scale=0.5.

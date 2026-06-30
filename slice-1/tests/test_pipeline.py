@@ -1,8 +1,9 @@
 import subprocess
 
 import pytest
-from app import pipeline
 from PIL import Image
+
+from indumentaria.photo import pipeline
 
 
 def test_build_prompts_default_center():

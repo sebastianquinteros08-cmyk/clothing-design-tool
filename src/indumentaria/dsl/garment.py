@@ -23,6 +23,7 @@ class Garment(BaseModel):
     name: str
     garment_type: str = "garment"
     description: str = ""
+    reference_image: str | None = None
     silhouette: str | None = None
     components: list[AnyComponent] = Field(default_factory=list)
     measurements: MeasurementSet

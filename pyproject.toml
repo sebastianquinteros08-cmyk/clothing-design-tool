@@ -1,10 +1,11 @@
 [project]
 name = "diseno-indumentaria"
 version = "0.1.0"
-description = "Herramienta de diseño de indumentaria: foto de prenda -> flat SVG (FastAPI + Konva + SAM 2)"
+description = "Herramienta de diseño de indumentaria: foto → flat SVG, editor de componentes, render y detección por IA (FastAPI + Konva + SAM 2 + Claude)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "anthropic>=0.111.0",
     "fal-client>=0.5.0",
     "fastapi>=0.137.1",
     "Pillow>=10.0.0",
@@ -29,5 +30,5 @@ target-version = "py312"
 select = ["E", "F", "I", "B", "UP"]
 
 [tool.pytest.ini_options]
-pythonpath = ["slice-1", "src"]
-testpaths = ["slice-1/tests", "tests"]
+pythonpath = ["slice-1", "slice-2", "src"]
+testpaths = ["slice-1/tests", "slice-2/tests", "tests"]

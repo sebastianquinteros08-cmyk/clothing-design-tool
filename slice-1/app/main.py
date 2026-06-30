@@ -9,7 +9,6 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.staticfiles import StaticFiles
 from PIL import Image, UnidentifiedImageError
 
-from app import pipeline
 from app.models import (
     SegmentRequest,
     SegmentResponse,
@@ -17,6 +16,7 @@ from app.models import (
     VectorizeRequest,
     VectorizeResponse,
 )
+from indumentaria.photo import pipeline
 
 BASE = Path(__file__).resolve().parent.parent          # slice-1/
 WEB = BASE / "web"

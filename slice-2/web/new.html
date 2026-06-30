@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva prenda — diseño indumentaria</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/vendor/konva.min.js"></script>
+</head>
+<body>
+  <header>
+    <a href="/" id="backToLibrary">← Biblioteca</a>
+    <h1>Nueva prenda — desde foto</h1>
+    <span id="error" hidden></span>
+  </header>
+
+  <main id="newFlow">
+    <section id="stepPhoto" class="step">
+      <h2>1. Subí una foto y marcá la prenda</h2>
+      <input type="file" id="file" accept="image/*">
+      <div id="newTools" hidden>
+        <button data-mode="include" class="mode active">Incluir (+)</button>
+        <button data-mode="exclude" class="mode">Excluir (−)</button>
+        <button data-mode="box" class="mode">Caja</button>
+        <button id="clear">Limpiar marcas</button>
+        <button id="segment">Segmentar</button>
+        <button id="vectorize" disabled>Usar este recorte →</button>
+        <span id="newCost">$0.0000</span>
+      </div>
+      <div id="newCanvas"></div>
+    </section>
+
+    <section id="stepConfirm" class="step" hidden>
+      <h2>2. Confirmá los componentes</h2>
+      <p id="confirmNote" hidden></p>
+      <div id="confirmForm" class="confirm-grid"></div>
+      <div id="newActions">
+        <button id="createBtn">Crear prenda</button>
+        <span id="createStatus"></span>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/js/new_from_photo.js"></script>
+</body>
+</html>

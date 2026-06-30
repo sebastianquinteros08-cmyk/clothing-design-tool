@@ -15,7 +15,7 @@ class BodyProfile(BaseModel):
     """Medidas corporales del wearer, nombradas y extensibles (cm, en (0, MAX_CM]).
 
     PLACEHOLDER: los valores de ejemplo no son reales — setear las medidas
-    reales del usuario antes de producir un tech pack (spec §Pendiente).
+    reales del usuario antes de producir un tech pack.
     """
 
     measures: dict[str, float] = Field(default_factory=dict)

@@ -45,3 +45,21 @@ def test_negative_button_rows_rejected():
 def test_lapel_width_must_be_positive():
     with pytest.raises(ValidationError):
         Collar(subtype="notch_lapel", lapel_width_cm=0.0)
+
+
+def test_component_id_is_unique_and_stable():
+    from indumentaria.dsl.components import Collar
+
+    a = Collar(subtype="notch_lapel")
+    b = Collar(subtype="notch_lapel")
+    assert a.component_id != b.component_id  # ids distintos por instancia
+    # round-trip JSON preserva el id
+    restored = Collar.model_validate_json(a.model_dump_json())
+    assert restored.component_id == a.component_id
+
+
+def test_component_id_can_be_set_explicitly():
+    from indumentaria.dsl.components import Pocket
+
+    p = Pocket(subtype="welt", component_id="fixed123")
+    assert p.component_id == "fixed123"

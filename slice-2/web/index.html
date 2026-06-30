@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca — diseño indumentaria</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Biblioteca de prendas</h1>
+    <span id="newGarment">
+      <a class="btn-primary" href="/new.html">+ Nueva prenda (desde foto)</a>
+      <button class="btn-disabled" disabled title="Próximamente (Slice 4b)">De cero</button>
+    </span>
+    <span id="error" hidden></span>
+  </header>
+
+  <main id="library">
+    <div id="grid"></div>
+    <p id="empty" hidden>Todavía no hay prendas. Creá una desde una foto.</p>
+  </main>
+
+  <script type="module" src="/js/home.js"></script>
+</body>
+</html>

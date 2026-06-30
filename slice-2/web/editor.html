@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor — diseño indumentaria</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/vendor/konva.min.js"></script>
+</head>
+<body>
+  <header>
+    <a href="/" id="backToLibrary">← Biblioteca</a>
+    <h1 id="garmentName">…</h1>
+    <span id="versionBadge">v—</span>
+    <button id="undo" disabled>Deshacer</button>
+    <span id="viewToggle">
+      <button id="tabEdit" class="active">Editar</button>
+      <button id="tabRender">Render</button>
+    </span>
+    <span id="error" hidden></span>
+  </header>
+
+  <main>
+    <section id="doubleView">
+      <figure>
+        <figcaption>Referencia</figcaption>
+        <img id="referenceImg" alt="referencia" />
+        <span id="referenceMissing" class="missing-note" hidden>(falta la foto de referencia)</span>
+      </figure>
+      <figure>
+        <figcaption>Flat</figcaption>
+        <div id="flatStage"></div>
+      </figure>
+    </section>
+
+    <section id="forms">
+      <div id="metadataPanel"></div>
+      <div id="componentsPanel"></div>
+      <div id="measurementsPanel"></div>
+    </section>
+
+    <aside id="historyPanel"></aside>
+
+    <section id="renderView" hidden>
+      <div id="fabricPicker"></div>
+      <div id="renderControls">
+        <label>Color <input id="renderColor" type="text" placeholder="(default de la tela)"></label>
+        <button id="renderBtn">Renderizar</button>
+        <span id="renderStatus"></span>
+      </div>
+      <div id="renderGallery"></div>
+    </section>
+  </main>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

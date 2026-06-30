@@ -22,7 +22,7 @@ El server está atado a `127.0.0.1` (no accesible desde la LAN) — uso individu
 
 ## Arquitectura
 
-- Backend **sin estado** (`app/main.py`): 3 endpoints (`/api/upload`, `/api/segment`, `/api/vectorize`) que envuelven funciones puras de `app/pipeline.py` (refactor del Slice 0). El frontend tiene el estado (id, puntos, caja) y lo reenvía.
+- Backend **sin estado** (`app/main.py`): 3 endpoints (`/api/upload`, `/api/segment`, `/api/vectorize`) que envuelven funciones puras de `src/indumentaria/photo/pipeline.py` (refactor del Slice 0, ahora compartido). El frontend tiene el estado (id, puntos, caja) y lo reenvía.
 - Optimización **upload-once**: la foto se sube a fal.ai una vez; los re-runs reusan la URL.
 - Frontend vanilla + Konva vendored (`web/`), sin build step.
 - Outputs efímeros por sesión en `work/<id>/` (gitignored).
@@ -33,8 +33,8 @@ El server está atado a `127.0.0.1` (no accesible desde la LAN) — uso individu
 # Backend (sin gasto — fal.ai mockeado): 25 tests
 uv run pytest slice-1/tests/test_pipeline.py slice-1/tests/test_models.py slice-1/tests/test_endpoints.py -v
 
-# Mapeo de coordenadas: verificado en vivo con Playwright MCP (Sesión 5).
-# Para correrlo en pytest hace falta instalar el browser (gate §7):
+# Mapeo de coordenadas: verificado en vivo con automatización de browser.
+# Para correrlo en pytest hace falta instalar el browser:
 #   uv add --dev pytest-playwright && uv run playwright install chromium
 # y la app corriendo. Sin pytest-playwright, el test se auto-skipea.
 uv run pytest slice-1/tests/test_coordinate_mapping.py -v

@@ -1,10 +1,11 @@
 import io
 from pathlib import Path
 
-from app import pipeline
 from app.main import app
 from fastapi.testclient import TestClient
 from PIL import Image
+
+from indumentaria.photo import pipeline
 
 client = TestClient(app)
 

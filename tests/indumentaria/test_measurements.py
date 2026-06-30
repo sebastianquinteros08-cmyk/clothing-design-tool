@@ -1,11 +1,11 @@
 import pytest
 from pydantic import ValidationError
 
-from indumentaria.dsl.measurements import BodyProfile, Derivation, MeasurementSet, POM
+from indumentaria.dsl.measurements import POM, BodyProfile, Derivation, MeasurementSet
 
 
 def _body() -> BodyProfile:
-    # PLACEHOLDER: setear medidas reales del usuario (spec §Pendiente)
+    # PLACEHOLDER: setear medidas reales del usuario
     return BodyProfile(measures={"chest_cm": 96.0, "waist_cm": 80.0})
 
 

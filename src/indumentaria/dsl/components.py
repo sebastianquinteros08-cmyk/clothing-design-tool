@@ -6,7 +6,8 @@
 
 from __future__ import annotations
 
-from typing import Annotated, ClassVar, Literal, Union
+from typing import Annotated, ClassVar, Literal
+from uuid import uuid4
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -15,6 +16,7 @@ from indumentaria.dsl import vocab
 
 class Component(BaseModel):
     SUBTYPE_VOCAB: ClassVar[frozenset[str]] = frozenset()
+    component_id: str = Field(default_factory=lambda: uuid4().hex)
     subtype: str
     notes: str | None = None
 
@@ -77,6 +79,6 @@ class Hem(Component):
 
 
 AnyComponent = Annotated[
-    Union[Collar, Closure, Sleeve, Pocket, Hem],
+    Collar | Closure | Sleeve | Pocket | Hem,
     Field(discriminator="kind"),
 ]
